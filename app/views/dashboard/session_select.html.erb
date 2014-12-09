@@ -1,0 +1,7 @@
+Wie ben je ?
+
+<% @users.each do |u| %>
+    <%= link_to u.name, controller: "dashboard", action: "set_user_session", id: u.id %>
+<% end %>
+
+<%= link_to "Uitloggen", log_out_path  %>

@@ -1,0 +1,36 @@
+<div class="input_fields_wrap">
+<%= form_for @house do |f| %>
+
+  <% if @house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@house.errors.count, "error") %> prohibited this house from being saved:</h2>
+
+      <ul>
+      <% @house.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <fieldset class="users">
+  <%= f.fields_for :users do |builder| %>
+        <%= builder.label :name, "Naam" %>
+        <%= builder.text_field :name %>
+        <%= builder.text_field :color, :class => "colorpicker" %>
+        <% if builder.object.avatar.exists? %>
+          <%= image_tag builder.object.avatar.url(:thumb) %>
+        <% end %>
+        <%= builder.file_field :avatar %>
+  <% end %>
+</fieldset>
+
+
+    <button class="add_field_button">Huisgenoten toevoegen</button>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+</div>

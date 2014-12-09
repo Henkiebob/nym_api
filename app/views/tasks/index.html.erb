@@ -1,0 +1,18 @@
+
+<div class="tasks picked_up">
+  <h2> Opgepakte taken</h2>
+  <% if !@already_signed_tasks.empty? %>
+    <%= render "tasks", tasks: @already_signed_tasks, :open => 0 %>
+  <% end %>
+</div>
+
+<% if !@open_tasks.empty? %>
+  <div class="tasks open">
+    <h2>Open taken</h2>
+      <%= render "tasks", tasks: @open_tasks, :open => 1 %>
+  </div>
+<% end %>
+
+
+<%= link_to "Taak aanmaken", new_task_path %>
+
