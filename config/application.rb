@@ -6,11 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-<<<<<<< HEAD
 module NymApi
-=======
-module Notyourmom
->>>>>>> e69cc23fa9908ce52e526e265dc2367b13d7503b
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -23,7 +19,6 @@ module Notyourmom
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-<<<<<<< HEAD
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'
@@ -37,7 +32,5 @@ module Notyourmom
     #     resource '*', :headers => :any, :methods => [:get, :post, :options]
     #   end
     # end
-=======
->>>>>>> e69cc23fa9908ce52e526e265dc2367b13d7503b
   end
 end

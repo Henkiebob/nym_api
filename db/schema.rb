@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141207140154) do
 
   create_table "apikeys", force: true do |t|
@@ -33,22 +32,10 @@ ActiveRecord::Schema.define(version: 20141207140154) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-=======
-ActiveRecord::Schema.define(version: 20141115173533) do
-
-  create_table "houses", force: true do |t|
-    t.string   "name"
-    t.integer  "budget_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "password_digest"
-    t.string   "auth_token"
->>>>>>> e69cc23fa9908ce52e526e265dc2367b13d7503b
   end
 
   create_table "tasks", force: true do |t|
     t.string   "name"
-<<<<<<< HEAD
     t.datetime "deadline"
     t.string   "duration"
     t.string   "points"
@@ -57,14 +44,6 @@ ActiveRecord::Schema.define(version: 20141115173533) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "house_id"
-=======
-    t.string   "duration"
-    t.string   "iteration"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "house_id"
-    t.datetime "deadline"
->>>>>>> e69cc23fa9908ce52e526e265dc2367b13d7503b
   end
 
   create_table "users", force: true do |t|
@@ -74,24 +53,10 @@ ActiveRecord::Schema.define(version: 20141115173533) do
     t.integer  "house_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
-=======
-    t.string   "color"
->>>>>>> e69cc23fa9908ce52e526e265dc2367b13d7503b
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
 
-<<<<<<< HEAD
-=======
-  create_table "userstasks", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "task_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
->>>>>>> e69cc23fa9908ce52e526e265dc2367b13d7503b
 end

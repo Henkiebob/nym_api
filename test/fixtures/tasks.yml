@@ -2,7 +2,6 @@
 
 one:
   name: MyString
-<<<<<<< HEAD
   deadline: 2014-12-05 23:48:23
   duration: MyString
   points: MyString
@@ -16,12 +15,3 @@ two:
   points: MyString
   user_id: 1
   status: 1
-=======
-  duration: MyString
-  iteration: MyString
-
-two:
-  name: MyString
-  duration: MyString
-  iteration: MyString
->>>>>>> e69cc23fa9908ce52e526e265dc2367b13d7503b

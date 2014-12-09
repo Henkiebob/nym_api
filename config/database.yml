@@ -26,7 +26,6 @@ test:
 # Example:
 #   sqlite3://myuser:mypass@localhost/full/path/to/somedatabase
 #
-<<<<<<< HEAD
 # production:
 #   url: <%= ENV["DATABASE_URL"] %>
 
@@ -36,7 +35,3 @@ production:
     username: rails
     password: y04Xtl7E5E
     host: localhost
-=======
-production:
-  url: <%= ENV["DATABASE_URL"] %>
->>>>>>> e69cc23fa9908ce52e526e265dc2367b13d7503b

@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-<<<<<<< HEAD
   protect_from_forgery with: :null_session
 
   def restrict_access
@@ -14,21 +13,5 @@ class ApplicationController < ActionController::Base
     self.headers["WWW-Authenticate"] = %(Token realm="#{realm.gsub(/"/, "")}")
     self.__send__ :render, :json => { :error => "HTTP Token: Access denied. You did not provide an valid API key." }.to_json, :status => :unauthorized
   end
-=======
-  protect_from_forgery with: :exception
-
-
-  private
-    def current_user
-      @_current_user ||= session[:current_house_id] &&
-        House.find_by(id: session[:current_house_id])
-    end
-
-    def logged_in!
-      redirect_to "/log_in" unless current_user
-    end
-
-    helper_method :current_user
->>>>>>> e69cc23fa9908ce52e526e265dc2367b13d7503b
 
 end

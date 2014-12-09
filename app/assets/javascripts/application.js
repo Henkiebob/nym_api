@@ -13,11 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-<<<<<<< HEAD
 //= require_tree .
-=======
-//= require jquery.minicolors
-//= require jquery.minicolors.simple_form
-//= require_tree .
-
->>>>>>> e69cc23fa9908ce52e526e265dc2367b13d7503b
