@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207140154) do
+ActiveRecord::Schema.define(version: 20141218123948) do
 
   create_table "apikeys", force: true do |t|
     t.string   "access_token"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20141207140154) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "created_by"
   end
 
   create_table "tasks", force: true do |t|

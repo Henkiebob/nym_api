@@ -27,6 +27,17 @@ class API::TasksController < ApplicationController
 
   end
 
+  def destroy
+      @task = Task.find(params[:id])
+
+      if @task
+          @task.destroy
+          render :json => "succes"
+      else
+          render :json => "No task found"
+      end
+  end
+
   private
     def task_params
       params.require(:task).permit(:name, :deadline, :house_id, :points, :user_id, :status)

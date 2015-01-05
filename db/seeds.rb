@@ -5,3 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# 5.times do
+#   user = User.create([
+#     {name: Faker::Name.name},
+#     {email: Faker::Internet.email},
+#     {house_id: 1},
+#     {avatar: Faker::Avatar.image(slug = nil, size = '300x300', format = 'jpg')}
+#     ])
+# end
+
+5.times  {Fabricate(:user)}
+1.times  {Fabricate(:house)}
+Apikey.create(house_id: 1)
+10.times {Fabricate(:task)}

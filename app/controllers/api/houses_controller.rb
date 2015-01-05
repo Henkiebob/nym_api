@@ -1,6 +1,6 @@
 class API::HousesController  < ApplicationController
 
-  before_filter :restrict_access
+  #before_filter :restrict_access
   respond_to :json
 
   def create
@@ -20,12 +20,24 @@ class API::HousesController  < ApplicationController
       render :json => @users
   end
 
+  def send_invite_mail
+       @users   = User.where(:house_id => params[:id])
+       @house   = House.find(params[:id])
+       @creator = User.find(@house.created_by)
+
+       @users.each do |user|
+          UserMailer.welcome_email(user, @house, @creator).deliver
+       end
+  end
+
+
   private
     def house_params
       params.require(:house).permit(
       :name,
       :password,
       :password_confirmation,
+      :avatar,
       users_attributes: [ :id, :name, :email, :avatar ])
     end
 

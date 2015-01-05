@@ -1,4 +1,4 @@
-class API::SessionsController  < ApplicationController
+class API::SessionsController < ApplicationController
 
   respond_to :json
 
@@ -7,9 +7,9 @@ class API::SessionsController  < ApplicationController
 
     if @house && @house.authenticate(login_params[:password])
 
-      @apikey = Apikey.where(:house_id => @house.id)
-      inlog_information = [house_id: @house.id, apikey: @apikey]
-      render :json => inlog_information
+      @apikey = Apikey.where("house_id = ?", @house.id)
+      #inlog_information = house: @house, apikey: @apikey
+      render :json => @apikey
     else
       errors = ["Geen geldige gegevens"]
       render :json => errors

@@ -30,6 +30,9 @@ group :development, :test do
     gem 'spring'
 end
 
+gem 'seed-fu', '~> 2.3'
+gem 'fabrication'
+gem 'faker', '~> 1.4.3'
 gem 'rack-cors', :require => 'rack/cors'
 
 group :production do

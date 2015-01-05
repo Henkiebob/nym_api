@@ -8,8 +8,8 @@ Rails.application.routes.draw do
       resources :houses
       resources :sessions
 
-      #get '/get_habitants' => "houses#get_habitants"
       get 'houses/habitants/:id', :to => 'houses#get_habitants'
+      get 'houses/send_invite_mail/:id', :to => 'houses#send_invite_mail'
       #put 'users/avatar/:id', :to => 'users#avatar'
   end
 
