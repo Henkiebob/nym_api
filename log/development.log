@@ -15087,3 +15087,54 @@ Can't verify CSRF token authenticity
   [1m[36m (2.3ms)[0m  [1mcommit transaction[0m
 Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 3.4ms)
   [1m[36mTask Load (0.2ms)[0m  [1mSELECT  "tasks".* FROM "tasks"   ORDER BY "tasks"."id" ASC LIMIT 1[0m
+
+
+Started GET "/api/tasks?house_id=1" for 127.0.0.1 at 2015-01-22 12:23:34 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by API::TasksController#index as */*
+  Parameters: {"house_id"=>"1", "task"=>{}}
+  [1m[35mApikey Exists (0.6ms)[0m  SELECT  1 AS one FROM "apikeys"  WHERE "apikeys"."access_token" = 'c3690d55301abfe889c608e9ede483f3' LIMIT 1
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 29ms (Views: 0.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/sessions" for 127.0.0.1 at 2015-01-22 12:23:38 +0100
+Processing by API::SessionsController#create as */*
+  Parameters: {"house"=>{"name"=>"Husasdadasasdasddsis7", "password"=>"[FILTERED]"}, "session"=>{"house"=>{"name"=>"Husasdadasasdasddsis7", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity
+  [1m[36mHouse Load (0.4ms)[0m  [1mSELECT  "houses".* FROM "houses"  WHERE "houses"."name" = 'Husasdadasasdasddsis7' LIMIT 1[0m
+Completed 200 OK in 68ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/sessions" for 127.0.0.1 at 2015-01-22 12:23:42 +0100
+Processing by API::SessionsController#create as */*
+  Parameters: {"house"=>{"name"=>"Test", "password"=>"[FILTERED]"}, "session"=>{"house"=>{"name"=>"Test", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity
+  [1m[35mHouse Load (0.5ms)[0m  SELECT  "houses".* FROM "houses"  WHERE "houses"."name" = 'Test' LIMIT 1
+  [1m[36mApikey Load (0.2ms)[0m  [1mSELECT "apikeys".* FROM "apikeys"  WHERE (house_id = 1)[0m
+Completed 200 OK in 119ms (Views: 6.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/tasks?house_id=1" for 127.0.0.1 at 2015-01-22 12:23:51 +0100
+Processing by API::TasksController#index as */*
+  Parameters: {"house_id"=>"1", "task"=>{}}
+  [1m[35mApikey Exists (0.2ms)[0m  SELECT  1 AS one FROM "apikeys"  WHERE "apikeys"."access_token" = '9d2a3cd5f980fe18db18d3499021bad6' LIMIT 1
+  [1m[36mTask Load (3.4ms)[0m  [1mSELECT  "tasks".* FROM "tasks"  WHERE "tasks"."house_id" = 1  ORDER BY "tasks"."deadline" ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 8ms
+
+NoMethodError (undefined method `deadline' for #<Task::ActiveRecord_Relation:0x007fd8e79e9ea0>):
+  app/controllers/api/tasks_controller.rb:9:in `index'
+
+
+  Rendered /Users/tjerkdijkstra/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0.rc1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/tjerkdijkstra/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0.rc1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/tjerkdijkstra/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0.rc1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/tjerkdijkstra/.rvm/gems/ruby-2.0.0-p451/gems/actionpack-4.1.0.rc1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.4ms)
+
+
+Started GET "/api/tasks?house_id=1" for 127.0.0.1 at 2015-01-22 12:25:22 +0100
+Processing by API::TasksController#index as */*
+  Parameters: {"house_id"=>"1", "task"=>{}}
+  [1m[35mApikey Exists (0.3ms)[0m  SELECT  1 AS one FROM "apikeys"  WHERE "apikeys"."access_token" = '9d2a3cd5f980fe18db18d3499021bad6' LIMIT 1
+  [1m[36mTask Load (0.6ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."house_id" = 1  ORDER BY "tasks"."deadline" ASC[0m
+Completed 200 OK in 18ms (Views: 10.7ms | ActiveRecord: 2.0ms)
