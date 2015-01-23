@@ -32,7 +32,7 @@ class API::TasksController < ApplicationController
 
       if @task
           @task.destroy
-          render :json => "succes"
+          render :json => @task
       else
           render :json => "No task found"
       end

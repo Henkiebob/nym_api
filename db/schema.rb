@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218123948) do
+ActiveRecord::Schema.define(version: 20150122133605) do
 
   create_table "apikeys", force: true do |t|
     t.string   "access_token"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20141218123948) do
   create_table "tasks", force: true do |t|
     t.string   "name"
     t.datetime "deadline"
-    t.string   "duration"
+    t.integer  "duration",   limit: 255
     t.string   "points"
     t.integer  "user_id"
     t.integer  "status"

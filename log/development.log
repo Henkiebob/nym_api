@@ -15138,3 +15138,350 @@ Processing by API::TasksController#index as */*
   [1m[35mApikey Exists (0.3ms)[0m  SELECT  1 AS one FROM "apikeys"  WHERE "apikeys"."access_token" = '9d2a3cd5f980fe18db18d3499021bad6' LIMIT 1
   [1m[36mTask Load (0.6ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."house_id" = 1  ORDER BY "tasks"."deadline" ASC[0m
 Completed 200 OK in 18ms (Views: 10.7ms | ActiveRecord: 2.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeTaskDurationToInt (20150122133605)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeTaskDurationToInt (20150122133605)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.7ms)[0m  [1mCREATE TEMPORARY TABLE "atasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "deadline" datetime, "duration" varchar(255), "points" varchar(255), "user_id" integer, "status" integer, "created_at" datetime, "updated_at" datetime, "house_id" integer) [0m
+  [1m[35m (0.4ms)[0m  SELECT * FROM "tasks"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (2, 'dolorem', '2014-12-20 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.229515', '2014-12-17 11:45:45.229515', 1)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (3, 'architecto', '2014-12-19 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.232258', '2014-12-17 11:45:45.232258', 1)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (4, 'eum', '2014-12-21 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.235077', '2014-12-17 11:45:45.235077', 1)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (5, 'animi', '2014-12-22 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.237420', '2014-12-17 11:45:45.237420', 1)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (6, 'mollitia', '2014-12-22 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.240344', '2014-12-17 11:45:45.240344', 1)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (7, 'cumque', '2014-12-18 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.242873', '2014-12-17 11:45:45.242873', 1)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (8, 'rerum', '2014-12-23 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.245789', '2014-12-17 11:45:45.245789', 1)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "atasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (9, 'rem', '2014-12-20 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.248467', '2014-12-17 11:45:45.248467', 1)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "atasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (10, 'itaque', '2014-12-20 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.251417', '2014-12-17 11:45:45.251417', 1)[0m
+  [1m[35m (2.2ms)[0m  DROP TABLE "tasks"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "deadline" datetime, "duration" integer(255), "points" varchar(255), "user_id" integer, "status" integer, "created_at" datetime, "updated_at" datetime, "house_id" integer) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "atasks"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "tasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (2, 'dolorem', '2014-12-20 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.229515', '2014-12-17 11:45:45.229515', 1)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "tasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (3, 'architecto', '2014-12-19 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.232258', '2014-12-17 11:45:45.232258', 1)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "tasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (4, 'eum', '2014-12-21 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.235077', '2014-12-17 11:45:45.235077', 1)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "tasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (5, 'animi', '2014-12-22 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.237420', '2014-12-17 11:45:45.237420', 1)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "tasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (6, 'mollitia', '2014-12-22 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.240344', '2014-12-17 11:45:45.240344', 1)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "tasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (7, 'cumque', '2014-12-18 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.242873', '2014-12-17 11:45:45.242873', 1)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "tasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (8, 'rerum', '2014-12-23 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.245789', '2014-12-17 11:45:45.245789', 1)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "tasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (9, 'rem', '2014-12-20 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.248467', '2014-12-17 11:45:45.248467', 1)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "tasks" ("id","name","deadline","duration","points","user_id","status","created_at","updated_at","house_id") VALUES (10, 'itaque', '2014-12-20 00:00:00.000000', NULL, NULL, NULL, NULL, '2014-12-17 11:45:45.251417', '2014-12-17 11:45:45.251417', 1)[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "atasks"
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150122133605"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "apikeys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "access_token" varchar(255), "house_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.7ms)[0m  CREATE TABLE "houses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "password" varchar(255), "password_salt" varchar(255), "created_at" datetime, "updated_at" datetime, "password_hash" varchar(255), "password_digest" varchar(255), "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "created_by" integer) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "deadline" datetime, "duration" integer(255), "points" varchar(255), "user_id" integer, "status" integer, "created_at" datetime, "updated_at" datetime, "house_id" integer) [0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "avatar" varchar(255), "email" varchar(255), "house_id" integer, "created_at" datetime, "updated_at" datetime, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  select sqlite_version(*)
+  [1m[36m (1.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150122133605')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141205224444')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141205224520')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141205224557')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141205224823')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141205225023')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141205231744')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141207094142')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141207140135')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141207140154')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141218123948')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-1gom02q.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-15fcnp3.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-15fcnp3.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-15fcnp3.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-15fcnp320150122-17792-1jyko6l'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-15fcnp320150122-17792-1jyko6l'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-15fcnp3.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-15fcnp3.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-15fcnp3.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-15fcnp320150122-17792-1jamf1g'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-15fcnp320150122-17792-1jamf1g'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-1a217nc.jpg'
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/86725743e39cefb79d2cfa2569573eee20150122-17792-rjwfyt.jpg'
+Binary data inserted for `string` type on column `avatar_content_type`
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("avatar_content_type", "avatar_file_name", "avatar_file_size", "avatar_updated_at", "created_at", "email", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["avatar_content_type", "image/jpeg"], ["avatar_file_name", "officiisdoloribuspraesentium.jpg"], ["avatar_file_size", 9275], ["avatar_updated_at", "2015-01-22 18:54:31.035828"], ["created_at", "2015-01-22 18:54:31.256914"], ["email", "ava.dubuque@blicklehner.org"], ["house_id", 1], ["name", "Lazaro"], ["updated_at", "2015-01-22 18:54:31.256914"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-116xuo1.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-1kjrlet.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-1kjrlet.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-1kjrlet.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-1kjrlet20150122-17792-kv9cnq'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-1kjrlet20150122-17792-kv9cnq'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-1kjrlet.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-1kjrlet.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-1kjrlet.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-1kjrlet20150122-17792-1r3984x'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-1kjrlet20150122-17792-1r3984x'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-1d2z9lk.jpg'
+  [1m[35m (0.2ms)[0m  begin transaction
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/416aa4f70617b0731050f27037045dd120150122-17792-y9nxlu.jpg'
+Binary data inserted for `string` type on column `avatar_content_type`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("avatar_content_type", "avatar_file_name", "avatar_file_size", "avatar_updated_at", "created_at", "email", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["avatar_content_type", "image/jpeg"], ["avatar_file_name", "voluptatemvitaeodit.jpg"], ["avatar_file_size", 7135], ["avatar_updated_at", "2015-01-22 18:54:32.706562"], ["created_at", "2015-01-22 18:54:32.872416"], ["email", "joan_kilback@hammes.name"], ["house_id", 1], ["name", "Victor"], ["updated_at", "2015-01-22 18:54:32.872416"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-45a2dn.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-12yoexx.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-12yoexx.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-12yoexx.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-12yoexx20150122-17792-1rtw6dy'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-12yoexx20150122-17792-1rtw6dy'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-12yoexx.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-12yoexx.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-12yoexx.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-12yoexx20150122-17792-1nonugp'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-12yoexx20150122-17792-1nonugp'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-19jvd0b.jpg'
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fc2ebc437441ff50dac3866e37cedce020150122-17792-192ewoj.jpg'
+Binary data inserted for `string` type on column `avatar_content_type`
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("avatar_content_type", "avatar_file_name", "avatar_file_size", "avatar_updated_at", "created_at", "email", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["avatar_content_type", "image/jpeg"], ["avatar_file_name", "vitaevoluptassit.jpg"], ["avatar_file_size", 6989], ["avatar_updated_at", "2015-01-22 18:54:36.649561"], ["created_at", "2015-01-22 18:54:36.807321"], ["email", "crystal@monahan.com"], ["house_id", 1], ["name", "Hollis"], ["updated_at", "2015-01-22 18:54:36.807321"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-1e3y7qv.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-s7km8i.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-s7km8i.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-s7km8i.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-s7km8i20150122-17792-1nzxklu'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-s7km8i20150122-17792-1nzxklu'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-s7km8i.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-s7km8i.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-s7km8i.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-s7km8i20150122-17792-wclg6d'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-s7km8i20150122-17792-wclg6d'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-x7z05y.jpg'
+  [1m[35m (0.2ms)[0m  begin transaction
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/14570d74a1a837ea46eb6ac59283c99820150122-17792-jd01f6.jpg'
+Binary data inserted for `string` type on column `avatar_content_type`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("avatar_content_type", "avatar_file_name", "avatar_file_size", "avatar_updated_at", "created_at", "email", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["avatar_content_type", "image/jpeg"], ["avatar_file_name", "sedplaceatincidunt.jpg"], ["avatar_file_size", 6059], ["avatar_updated_at", "2015-01-22 18:54:37.877797"], ["created_at", "2015-01-22 18:54:38.038769"], ["email", "estel@swift.info"], ["house_id", 1], ["name", "Ryder"], ["updated_at", "2015-01-22 18:54:38.038769"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-1hrxpf7.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-235cbv.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-235cbv.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-235cbv.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-235cbv20150122-17792-hqpewr'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-235cbv20150122-17792-hqpewr'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-235cbv.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-235cbv.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-235cbv.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-235cbv20150122-17792-b1e268'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-235cbv20150122-17792-b1e268'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-1ybzdtb.jpg'
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/664a28edf2521bf4d1722d48f72841b520150122-17792-ft0js7.jpg'
+Binary data inserted for `string` type on column `avatar_content_type`
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("avatar_content_type", "avatar_file_name", "avatar_file_size", "avatar_updated_at", "created_at", "email", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["avatar_content_type", "image/jpeg"], ["avatar_file_name", "eosexpeditaqui.jpg"], ["avatar_file_size", 7431], ["avatar_updated_at", "2015-01-22 18:54:39.093113"], ["created_at", "2015-01-22 18:54:39.255499"], ["email", "mireille.bosco@ruel.name"], ["house_id", 1], ["name", "Oran"], ["updated_at", "2015-01-22 18:54:39.255499"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mHouse Exists (0.2ms)[0m  SELECT  1 AS one FROM "houses"  WHERE "houses"."name" = 'Test' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mHouse Exists (0.1ms)[0m  SELECT  1 AS one FROM "houses"  WHERE "houses"."name" = 'Test' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "houses" ("created_at", "name", "password_digest", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-01-22 18:54:39.400714"], ["name", "Test"], ["password_digest", "$2a$10$ISSpfFGsddUFG9hkzTV1Nuz2R1yZVMyMSWLiiFOcUfl4BF6fIsx.u"], ["updated_at", "2015-01-22 18:54:39.400714"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mApikey Exists (0.2ms)[0m  SELECT  1 AS one FROM "apikeys"  WHERE "apikeys"."access_token" = '1033306cd32d7c362136ba0bb67e58db' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "apikeys" ("access_token", "created_at", "house_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["access_token", "1033306cd32d7c362136ba0bb67e58db"], ["created_at", "2015-01-22 18:54:39.411943"], ["house_id", 1], ["updated_at", "2015-01-22 18:54:39.411943"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-22 18:54:39.431601"], ["deadline", "2015-01-24 00:00:00.000000"], ["house_id", 1], ["name", "sequi"], ["updated_at", "2015-01-22 18:54:39.431601"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-22 18:54:39.434867"], ["deadline", "2015-01-23 00:00:00.000000"], ["house_id", 1], ["name", "sunt"], ["updated_at", "2015-01-22 18:54:39.434867"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-22 18:54:39.437726"], ["deadline", "2015-01-28 00:00:00.000000"], ["house_id", 1], ["name", "vel"], ["updated_at", "2015-01-22 18:54:39.437726"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-22 18:54:39.440278"], ["deadline", "2015-01-29 00:00:00.000000"], ["house_id", 1], ["name", "sunt"], ["updated_at", "2015-01-22 18:54:39.440278"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-22 18:54:39.442711"], ["deadline", "2015-01-26 00:00:00.000000"], ["house_id", 1], ["name", "enim"], ["updated_at", "2015-01-22 18:54:39.442711"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-22 18:54:39.445953"], ["deadline", "2015-01-25 00:00:00.000000"], ["house_id", 1], ["name", "cum"], ["updated_at", "2015-01-22 18:54:39.445953"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-22 18:54:39.448409"], ["deadline", "2015-01-28 00:00:00.000000"], ["house_id", 1], ["name", "est"], ["updated_at", "2015-01-22 18:54:39.448409"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-22 18:54:39.451080"], ["deadline", "2015-01-23 00:00:00.000000"], ["house_id", 1], ["name", "quibusdam"], ["updated_at", "2015-01-22 18:54:39.451080"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-22 18:54:39.453364"], ["deadline", "2015-01-26 00:00:00.000000"], ["house_id", 1], ["name", "vel"], ["updated_at", "2015-01-22 18:54:39.453364"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-22 18:54:39.456328"], ["deadline", "2015-01-27 00:00:00.000000"], ["house_id", 1], ["name", "consectetur"], ["updated_at", "2015-01-22 18:54:39.456328"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "apikeys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "access_token" varchar(255), "house_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "houses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "password" varchar(255), "password_salt" varchar(255), "created_at" datetime, "updated_at" datetime, "password_hash" varchar(255), "password_digest" varchar(255), "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "created_by" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "deadline" datetime, "duration" integer(255), "points" varchar(255), "user_id" integer, "status" integer, "created_at" datetime, "updated_at" datetime, "house_id" integer) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "avatar" varchar(255), "email" varchar(255), "house_id" integer, "created_at" datetime, "updated_at" datetime, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  select sqlite_version(*)
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150122133605')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141205224444')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141205224520')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141205224557')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141205224823')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141205225023')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141205231744')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141207094142')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141207140135')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141207140154')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141218123948')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1ypp1ml.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1p1ttfj.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1p1ttfj.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1p1ttfj.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1p1ttfj20150123-1088-1ypb2r5'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1p1ttfj20150123-1088-1ypb2r5'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1p1ttfj.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1p1ttfj.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1p1ttfj.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1p1ttfj20150123-1088-705ofe'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1p1ttfj20150123-1088-705ofe'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-aajccw.jpg'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/fcf3415e06da0d247a33208ade11f19f20150123-1088-1iiqyym.jpg'
+Binary data inserted for `string` type on column `avatar_content_type`
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("avatar_content_type", "avatar_file_name", "avatar_file_size", "avatar_updated_at", "created_at", "email", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["avatar_content_type", "image/jpeg"], ["avatar_file_name", "porroblanditiisquam.jpg"], ["avatar_file_size", 8398], ["avatar_updated_at", "2015-01-23 19:25:51.205299"], ["created_at", "2015-01-23 19:25:51.411401"], ["email", "karine.hyatt@feest.net"], ["house_id", 1], ["name", "Faye"], ["updated_at", "2015-01-23 19:25:51.411401"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-qap125.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-8k4d08.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-8k4d08.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-8k4d08.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-8k4d0820150123-1088-3v4g0i'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-8k4d0820150123-1088-3v4g0i'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-8k4d08.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-8k4d08.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-8k4d08.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-8k4d0820150123-1088-1rjs3nz'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-8k4d0820150123-1088-1rjs3nz'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-he94iq.jpg'
+  [1m[35m (0.3ms)[0m  begin transaction
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ab987371ae32474ab42b470d78b9631d20150123-1088-5hqfqh.jpg'
+Binary data inserted for `string` type on column `avatar_content_type`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("avatar_content_type", "avatar_file_name", "avatar_file_size", "avatar_updated_at", "created_at", "email", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["avatar_content_type", "image/jpeg"], ["avatar_file_name", "aquidolore.jpg"], ["avatar_file_size", 7378], ["avatar_updated_at", "2015-01-23 19:25:51.974786"], ["created_at", "2015-01-23 19:25:52.175021"], ["email", "dillon@greenholt.org"], ["house_id", 1], ["name", "Hipolito"], ["updated_at", "2015-01-23 19:25:52.175021"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-dbals8.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-11krs8i.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-11krs8i.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-11krs8i.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-11krs8i20150123-1088-1rzmmzm'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-11krs8i20150123-1088-1rzmmzm'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-11krs8i.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-11krs8i.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-11krs8i.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-11krs8i20150123-1088-19xhlve'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-11krs8i20150123-1088-19xhlve'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-li00t3.jpg'
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/9981275d3d7e7510d48d5a266f4fa3ca20150123-1088-17rkspm.jpg'
+Binary data inserted for `string` type on column `avatar_content_type`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("avatar_content_type", "avatar_file_name", "avatar_file_size", "avatar_updated_at", "created_at", "email", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["avatar_content_type", "image/jpeg"], ["avatar_file_name", "abhicipsum.jpg"], ["avatar_file_size", 10356], ["avatar_updated_at", "2015-01-23 19:25:52.792112"], ["created_at", "2015-01-23 19:25:52.939237"], ["email", "britney@bednar.biz"], ["house_id", 1], ["name", "Jasen"], ["updated_at", "2015-01-23 19:25:52.939237"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-1hqvtnz.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-crc7x8.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-crc7x8.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-crc7x8.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-crc7x820150123-1088-1j94nxi'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-crc7x820150123-1088-1j94nxi'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-crc7x8.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-crc7x8.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-crc7x8.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-crc7x820150123-1088-3zp87u'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-crc7x820150123-1088-3zp87u'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-lo5i8f.jpg'
+  [1m[35m (0.3ms)[0m  begin transaction
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/a49075372d2dea6ffe39f889f236118e20150123-1088-epqebo.jpg'
+Binary data inserted for `string` type on column `avatar_content_type`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("avatar_content_type", "avatar_file_name", "avatar_file_size", "avatar_updated_at", "created_at", "email", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["avatar_content_type", "image/jpeg"], ["avatar_file_name", "quiipsamut.jpg"], ["avatar_file_size", 6130], ["avatar_updated_at", "2015-01-23 19:25:53.512815"], ["created_at", "2015-01-23 19:25:53.663540"], ["email", "delphia.daugherty@conn.com"], ["house_id", 1], ["name", "Elmer"], ["updated_at", "2015-01-23 19:25:53.663540"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-1kvy53p.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-2o6f37.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-2o6f37.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-2o6f37.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-2o6f3720150123-1088-1cqu4qs'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-2o6f3720150123-1088-1cqu4qs'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-2o6f37.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-2o6f37.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-2o6f37.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-2o6f3720150123-1088-a8cyoq'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-2o6f3720150123-1088-a8cyoq'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-125mww6.jpg'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/ccdf6e9261f3d277b76d22ff318d1f8320150123-1088-tvuax9.jpg'
+Binary data inserted for `string` type on column `avatar_content_type`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("avatar_content_type", "avatar_file_name", "avatar_file_size", "avatar_updated_at", "created_at", "email", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["avatar_content_type", "image/jpeg"], ["avatar_file_name", "rationesedcumque.jpg"], ["avatar_file_size", 9928], ["avatar_updated_at", "2015-01-23 19:25:54.328937"], ["created_at", "2015-01-23 19:25:54.483016"], ["email", "mateo_huels@maggio.biz"], ["house_id", 1], ["name", "Meghan"], ["updated_at", "2015-01-23 19:25:54.483016"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-1k1od0l.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-249xh1.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-249xh1.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-249xh1.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-249xh120150123-1088-yocv8f'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-249xh120150123-1088-yocv8f'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-249xh1.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-249xh1.jpg[0]'
+Command :: convert '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-249xh1.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-249xh120150123-1088-l86pgf'
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-249xh120150123-1088-l86pgf'
+  [1m[35mHouse Exists (0.3ms)[0m  SELECT  1 AS one FROM "houses"  WHERE "houses"."name" = 'Test' LIMIT 1
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-1i792g8.jpg'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mHouse Exists (0.2ms)[0m  SELECT  1 AS one FROM "houses"  WHERE "houses"."name" = 'Test' LIMIT 1
+Command :: file -b --mime '/var/folders/rv/69nz9s614fbds9ks7r59byj80000gn/T/6fde1e99da277a7cda4ed3b92c67164320150123-1088-8k0qar.jpg'
+Binary data inserted for `string` type on column `avatar_content_type`
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "houses" ("avatar_content_type", "avatar_file_name", "avatar_file_size", "avatar_updated_at", "created_at", "name", "password_digest", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["avatar_content_type", "image/jpeg"], ["avatar_file_name", "ineumfuga.jpg"], ["avatar_file_size", 8297], ["avatar_updated_at", "2015-01-23 19:25:55.660807"], ["created_at", "2015-01-23 19:25:55.835872"], ["name", "Test"], ["password_digest", "$2a$10$3qmHfyUIMITp6w1VAgFyGeNZdXyyKASMg1qnQ22BBHa5H04yFAEju"], ["updated_at", "2015-01-23 19:25:55.835872"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mApikey Exists (0.2ms)[0m  SELECT  1 AS one FROM "apikeys"  WHERE "apikeys"."access_token" = 'b3d72dc0c2d1e56fda60105a5d8622c5' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "apikeys" ("access_token", "created_at", "house_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["access_token", "b3d72dc0c2d1e56fda60105a5d8622c5"], ["created_at", "2015-01-23 19:25:55.855886"], ["house_id", 1], ["updated_at", "2015-01-23 19:25:55.855886"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-23 19:25:55.921923"], ["deadline", "2015-01-27 00:00:00.000000"], ["house_id", 1], ["name", "Ea tempora neque doloremque minus est."], ["updated_at", "2015-01-23 19:25:55.921923"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-23 19:25:55.925201"], ["deadline", "2015-01-27 00:00:00.000000"], ["house_id", 1], ["name", "Repellendus eos molestias itaque aut sit est."], ["updated_at", "2015-01-23 19:25:55.925201"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-23 19:25:55.927555"], ["deadline", "2015-01-24 00:00:00.000000"], ["house_id", 1], ["name", "Occaecati reiciendis aut impedit voluptatibus autem."], ["updated_at", "2015-01-23 19:25:55.927555"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-23 19:25:55.930002"], ["deadline", "2015-01-28 00:00:00.000000"], ["house_id", 1], ["name", "Est id laboriosam molestiae accusantium eaque et quae."], ["updated_at", "2015-01-23 19:25:55.930002"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-23 19:25:55.932473"], ["deadline", "2015-01-25 00:00:00.000000"], ["house_id", 1], ["name", "Tenetur dolores eaque voluptatem culpa."], ["updated_at", "2015-01-23 19:25:55.932473"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-23 19:25:55.935114"], ["deadline", "2015-01-28 00:00:00.000000"], ["house_id", 1], ["name", "Incidunt reiciendis modi quisquam nostrum aliquam blanditiis."], ["updated_at", "2015-01-23 19:25:55.935114"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-23 19:25:55.937628"], ["deadline", "2015-01-25 00:00:00.000000"], ["house_id", 1], ["name", "Eveniet quia quod eaque."], ["updated_at", "2015-01-23 19:25:55.937628"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-23 19:25:55.940440"], ["deadline", "2015-01-27 00:00:00.000000"], ["house_id", 1], ["name", "Sunt deserunt mollitia placeat temporibus."], ["updated_at", "2015-01-23 19:25:55.940440"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-01-23 19:25:55.943591"], ["deadline", "2015-01-24 00:00:00.000000"], ["house_id", 1], ["name", "Doloribus et exercitationem aut vitae et maiores unde voluptatem."], ["updated_at", "2015-01-23 19:25:55.943591"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tasks" ("created_at", "deadline", "house_id", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-01-23 19:25:55.946677"], ["deadline", "2015-01-24 00:00:00.000000"], ["house_id", 1], ["name", "Eum sint eligendi esse tenetur quia iusto et."], ["updated_at", "2015-01-23 19:25:55.946677"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+
+
+Started GET "/" for 127.0.0.1 at 2015-01-23 20:28:13 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/tjerkdijkstra/.rvm/gems/ruby-2.0.0-p451/gems/railties-4.1.0.rc1/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 20ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/sessions" for 127.0.0.1 at 2015-01-23 20:28:26 +0100
+Processing by API::SessionsController#create as */*
+  Parameters: {"house"=>{"name"=>"Test", "password"=>"[FILTERED]"}, "session"=>{"house"=>{"name"=>"Test", "password"=>"[FILTERED]"}}}
+Can't verify CSRF token authenticity
+  [1m[35mHouse Load (0.6ms)[0m  SELECT  "houses".* FROM "houses"  WHERE "houses"."name" = 'Test' LIMIT 1
+  [1m[36mApikey Load (0.4ms)[0m  [1mSELECT "apikeys".* FROM "apikeys"  WHERE (house_id = 1)[0m
+Completed 200 OK in 189ms (Views: 5.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/tasks?house_id=1" for 127.0.0.1 at 2015-01-23 20:28:42 +0100
+Processing by API::TasksController#index as */*
+  Parameters: {"house_id"=>"1", "task"=>{}}
+  [1m[35mApikey Exists (0.2ms)[0m  SELECT  1 AS one FROM "apikeys"  WHERE "apikeys"."access_token" = 'b3d72dc0c2d1e56fda60105a5d8622c5' LIMIT 1
+  [1m[36mTask Load (1.3ms)[0m  [1mSELECT "tasks".* FROM "tasks"  WHERE "tasks"."house_id" = 1  ORDER BY "tasks"."deadline" ASC[0m
+Completed 200 OK in 28ms (Views: 14.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/houses/habitants/1" for 127.0.0.1 at 2015-01-23 20:29:01 +0100
+Processing by API::HousesController#get_habitants as */*
+  Parameters: {"id"=>"1", "house"=>{}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"  WHERE "users"."house_id" = 1
+Completed 200 OK in 24ms (Views: 16.2ms | ActiveRecord: 1.3ms)
