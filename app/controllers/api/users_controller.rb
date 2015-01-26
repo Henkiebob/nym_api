@@ -4,9 +4,13 @@
 
     def create
       users = []
-
       params["user"].each do |u|
-        user = User.create(name: u.second["name"], email: u.second["email"], house_id: u.second["house_id"], owner: u.second["creator"])
+
+        if u.second["house_id"].present?
+          @house_id =  u.second["house_id"];
+        end
+
+        user = User.create(name: u.second["name"], email: u.second["email"], house_id: @house_id)
         users << user
       end
 
