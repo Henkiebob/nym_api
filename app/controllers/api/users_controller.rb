@@ -3,18 +3,9 @@
     before_filter :restrict_access
 
     def create
-      users = []
-      params["user"].each do |u|
-
-        if u.second["house_id"].present?
-          @house_id =  u.second["house_id"];
+        params["users"].each do |user|
+            @user = User.new(user_params)
         end
-
-        user = User.create(name: u.second["name"], email: u.second["email"], house_id: @house_id)
-        users << user
-      end
-
-      render :json => users
     end
 
     def update
@@ -35,7 +26,6 @@
 
   private
     def user_params
-      params.require(:user).permit!
+     params.require(:user).permit(:name, :email, :house_id)
     end
-
   end

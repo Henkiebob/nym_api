@@ -15,6 +15,15 @@ class API::HousesController  < ApplicationController
     end
   end
 
+  def update
+       @house = House.find(params[:id])
+        if @house.update_attributes(house_params)
+           render :json => @house.users
+        else
+            render :json => @house.errors.full_messages
+        end
+  end
+
   def get_habitants
       @users = User.where(:house_id => params[:id])
       render :json => @users
