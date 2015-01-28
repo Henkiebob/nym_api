@@ -1,7 +1,12 @@
 class API::HousesController  < ApplicationController
 
-  #before_filter :restrict_access
+  before_filter :restrict_access, only: [:show, :update, :get_habitants, :destroy]
   respond_to :json
+
+  def show
+    @house = House.find_by_id(params[:id])
+    render :json => @house
+  end
 
   def create
     @house  = House.new(house_params)
