@@ -20,6 +20,6 @@ class API::LogsController < ApplicationController
 
   private
     def log_params
-      params.require(:log).permit(:taskname, :username, :points)
+      params.require(:log).permit(:name, :points, :user_id)
     end
 end
