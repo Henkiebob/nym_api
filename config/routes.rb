@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :users
       resources :houses
       resources :sessions
+      resources :logs
 
       get 'houses/habitants/:id', :to => 'houses#get_habitants'
       get 'houses/send_invite_mail/:id', :to => 'houses#send_invite_mail'
