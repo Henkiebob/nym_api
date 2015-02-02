@@ -44,6 +44,20 @@ class API::HousesController  < ApplicationController
        end
   end
 
+  def upload
+    @house = House.find_by_id(params[:id])
+    @house.avatar = params[:image];
+    if @house.save
+        render :json => @house
+    else
+        render :json => @house.errors
+    end
+  end
+
+  def avatar
+      @house = House.find_by_id(params[:id])
+      render :json => @house.avatar.url(:medium)
+  end
 
   private
     def house_params

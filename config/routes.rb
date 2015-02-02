@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
       get 'houses/habitants/:id', :to => 'houses#get_habitants'
       get 'houses/send_invite_mail/:id', :to => 'houses#send_invite_mail'
-      #put 'users/avatar/:id', :to => 'users#avatar'
+      get 'users/avatar/:id', :to => 'users#avatar'
+
+      put 'users/upload/:id', :to => 'users#upload'
   end
 
 end
