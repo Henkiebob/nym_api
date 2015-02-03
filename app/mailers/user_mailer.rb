@@ -4,8 +4,6 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user, house, creator)
 
-    creator = "Tjerk"
-
     @user     = user
     @house    = house
     @creator  = creator
