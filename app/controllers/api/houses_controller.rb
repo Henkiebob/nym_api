@@ -22,11 +22,12 @@ class API::HousesController  < ApplicationController
 
   def update
        @house = House.find(params[:id])
-       creator = @house.users.first
 
         if @house.update_attributes(house_params)
+            creator = @house.users.first.name
+
             @house.users.each do |user|
-              # send emails
+              #send email
               UserMailer.welcome_email(user, @house, creator).deliver
             end
             render :json => @house.users
