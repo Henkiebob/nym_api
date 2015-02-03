@@ -89,6 +89,8 @@ Rails.application.configure do
     user_name:            'info@studentschema.nl',
     password:             '4teNKoDq',
     authentication:       'plain',
-    enable_starttls_auto: true  }
+    :enable_starttls_auto => true,
+    :openssl_verify_mode  => 'none'
+    }
 
 end
