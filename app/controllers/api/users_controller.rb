@@ -3,9 +3,15 @@
     before_filter :restrict_access
 
     def create
-        params["users"].each do |user|
-            @user = User.new(user_params)
-        end
+        # params["users"].each do |user|
+        #     @user = User.new(user_params)
+        #     @house = House.find_by_id(user.house_id)
+
+        #     UserMailer.welcome_email(@user, @house)
+        # end
+        # @house = House.last
+
+        # UserMailer.welcome_email(@user, @house)
     end
 
     def update

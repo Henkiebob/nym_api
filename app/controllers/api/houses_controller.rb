@@ -22,8 +22,14 @@ class API::HousesController  < ApplicationController
 
   def update
        @house = House.find(params[:id])
+       creator = @house.users.first
+
         if @house.update_attributes(house_params)
-           render :json => @house.users
+            @house.users.each do |user|
+              # send emails
+              UserMailer.welcome_email(user, @house, creator).deliver
+            end
+            render :json => @house.users
         else
             render :json => @house.errors.full_messages
         end
@@ -34,15 +40,15 @@ class API::HousesController  < ApplicationController
       render :json => @users
   end
 
-  def send_invite_mail
-       @users   = User.where(:house_id => params[:id])
-       @house   = House.find(params[:id])
-       @creator = User.find(@house.created_by)
+  # def send_invite_mail
+  #      @users   = User.where(:house_id => params[:id])
+  #      @house   = House.find(params[:id])
+  #      @creator = User.find(@house.created_by)
 
-       @users.each do |user|
-          UserMailer.welcome_email(user, @house, @creator).deliver
-       end
-  end
+  #      @users.each do |user|
+  #         UserMailer.welcome_email(user, @house, @creator).deliver
+  #      end
+  # end
 
   def upload
     @house = House.find_by_id(params[:id])
@@ -66,7 +72,7 @@ class API::HousesController  < ApplicationController
       :password,
       :password_confirmation,
       :avatar,
-      users_attributes: [ :id, :name, :email, :avatar ])
+      users_attributes: [ :id, :name, :email, :avatar, :house_id ])
     end
 
 end

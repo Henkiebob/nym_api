@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
     belongs_to :house
     has_many :tasks
-
     accepts_nested_attributes_for :tasks
 
   #validates :avatar, :attachment_presence => true, :on => [ :update ]
