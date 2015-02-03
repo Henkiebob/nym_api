@@ -4,16 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welkom bij Not Your Mom <%= @user.name %></h1>
-    <p>
-      Jij bent uitgenodigd voor een groep op Not Your Mom
-      Je gebruikersnaam is <%= @house.name %>.<br>
-      Het wachtwoord is geheim en is bekend bij <%= @creator %> <br>
+    <img src="http://www.studentschema.nl/images/icon.png">
+    <h1>Welkom bij Not Your Mom,<%= @user.name %></h1>
+    <p>Jij bent uitgenodigd voor de groep: <%= @house.name %><br>
+Met deze groepsnaam kun je ook inloggen.<br>
+Het wachtwoord is geheim en is bekend bij <%= @creator %><br>
+Dus pak je mobiel en ga naar deze link! <%= @url %>
     </p>
-    <p>
-      <br>
-      Installeer de webapp op  <%= @url %>.
-    </p>
-    <p>Bedankt enzo</p>
   </body>
 </html>
