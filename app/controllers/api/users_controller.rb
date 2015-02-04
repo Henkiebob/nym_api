@@ -33,13 +33,9 @@
     def upload
       @user = User.find_by_id(params[:id])
 
-      data = StringIO.new(Base64.decode64(params[:image][:data]))
-      data.class.class_eval { attr_accessor :original_filename, :content_type }
-      data.original_filename = params[:image][:filename]
-      data.content_type = params[:iamge][:content_type]
-      params[:image] = data
-
-      @user.avatar = params[:image]
+      if params[:image]
+          @user.avatar = params[:image]
+      end
 
       if @user.save
           render :json => @user
