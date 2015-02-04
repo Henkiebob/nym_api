@@ -1,6 +1,6 @@
   class API::UsersController  < ApplicationController
 
-    before_filter :restrict_access
+    before_filter :restrict_access, only: [:show, :update]
 
     def create
         # params["users"].each do |user|
@@ -32,7 +32,15 @@
 
     def upload
       @user = User.find_by_id(params[:id])
-      @user.avatar = params[:image];
+
+      data = StringIO.new(Base64.decode64(params[:image][:data]))
+      data.class.class_eval { attr_accessor :original_filename, :content_type }
+      data.original_filename = params[:image][:filename]
+      data.content_type = params[:iamge][:content_type]
+      params[:image] = data
+
+      @user.avatar = params[:image]
+
       if @user.save
           render :json => @user
       else
