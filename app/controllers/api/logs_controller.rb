@@ -4,7 +4,7 @@ class API::LogsController < ApplicationController
   respond_to :json
 
   def show
-    @log = Log.find_by_id(params[:id])
+    @log = Log.where(:house_id => params[:id])
     render :json => @log
   end
 
@@ -20,6 +20,6 @@ class API::LogsController < ApplicationController
 
   private
     def log_params
-      params.require(:log).permit(:name, :points, :user_id)
+      params.require(:log).permit(:name, :points, :user_id, :house_id)
     end
 end
