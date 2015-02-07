@@ -23,6 +23,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem "paperclip", "~> 4.2"
 
+
 group :development, :test do
     gem 'railroady'
     gem 'quiet_assets'

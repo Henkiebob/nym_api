@@ -17,4 +17,7 @@ Rails.application.routes.draw do
       put 'users/upload/:id', :to => 'users#upload'
   end
 
+  resources :statistics
+
+
 end

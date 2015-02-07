@@ -1,0 +1,84 @@
+
+<style>
+span{
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size:15px;
+  width:100%;
+  float:left;
+  margin-bottom:10px;
+  background-color: white;
+  padding: 10px 20px;
+  box-sizing:border-box;
+  color:black;
+}
+body{
+  background: #DC5957;
+}
+.block{
+  width:500px;
+  float:left;
+  margin-left:50px;
+}
+*{
+  color:white;
+}
+
+.seperator{
+  height:10px;
+  border-top:3px solid lightgrey;
+  float:left;
+  width:100%;
+}
+
+.tasks{
+    background-color: white;
+    margin-left:20px;
+    float:left;
+    width:100%;
+    color:black;
+    padding:10px;
+}
+
+.task{
+  color:black;
+  float:left;
+  width:85%;
+  background:lightgrey;
+  margin-bottom:10px;
+  padding:10px;
+}
+</style>
+
+
+<div class="block">
+  <h2>Gebruikers</h2>
+<% @users.each do |user| %>
+  <span>Naam: <%= user.name %></span>
+  <span>Aangemaakt: <%= user.created_at.strftime("%B %d at %I:%M %p") %></span>
+  <span>Geupdate: <%= user.updated_at.strftime("%B %d at %I:%M %p") %></span>
+  <div class="seperator"></div>
+<% end %>
+</div>
+
+
+<div class="block">
+  <h2>Huizen</h2>
+<% @houses.each do |house| %>
+  <span>Naam: <%= house.name %></span>
+  <span>Aangemaakt: <%= house.created_at.strftime("%B %d at %I:%M %p") %></span>
+  <span>Geupdate: <%= house.updated_at.strftime("%B %d at %I:%M %p") %></span>
+
+  <% if !house.tasks.empty? %>
+  <div class="tasks">
+    <% house.tasks.each do |task| %>
+        <div class="task">
+          <%= task.name %>
+          <%= task.created_at %>
+        </div>
+    <% end %>
+  </div>
+  <% end %>
+  <div class="seperator"></div>
+<% end %>
+</div>
