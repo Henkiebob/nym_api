@@ -37,13 +37,13 @@
         if !@user.avatar_file_size.nil?
             avatar = @user.avatar.url(:thumb)
         else
-            filename = Digest::MD5.hexdigest(@user.email)
-            img = Avatarly.generate_avatar(@user.name, opts={:size => 150})
-              File.open('public/images/'+filename+'.png', 'wb') do |f|
-                f.write img
-            end
+          filename = Digest::MD5.hexdigest(@user.email)
+          img = Avatarly.generate_avatar(@user.name, opts={:size => 150})
+            File.open('public/images/'+filename+'.png', 'wb') do |f|
+              f.write img
+          end
 
-            avatar = 'public/images/'+filename+'.png'
+            avatar = '/images/'+filename+'.png'
         end
           render :json => {avatar: avatar}
     end
