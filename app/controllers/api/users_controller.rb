@@ -1,7 +1,7 @@
   class API::UsersController  < ApplicationController
     require 'digest/md5'
-
     before_filter :restrict_access, only: [:show, :update]
+    respond_to :png
 
     def update
         @user = User.find_by_id(params[:id])
@@ -37,15 +37,19 @@
         @user = User.find_by_id(params[:id])
 
         if !@user.avatar_file_size.nil?
-            @avatar = @user.avatar.url(:thumb)
+            @avatar = File.open(@user.avatar.url(:thumb))
         else
             filename = Digest::MD5.hexdigest(@user.email)
-            img = Avatarly.generate_avatar(@user.name, opts={})
+            img = Avatarly.generate_avatar(@user.name, opts={:size => 150})
               File.open('public/images/'+filename+'.png', 'wb') do |f|
                 f.write img
             end
 
-            @avatar = filename+'.png';
+            @avatar = File.open('public/images/'+filename+'.png')
+        end
+
+        respond_to do |format|
+            format.png { send_data @avatar.read, type: "image/png", disposition: 'inline'}
         end
     end
 

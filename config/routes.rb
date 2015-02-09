@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  #post '/add_user_to_task' => "tasks#add_user_to_task"
-  #delete '/remove_user_from_task' => "tasks#remove_user_from_task"
 
   namespace :api do
       resources :tasks
