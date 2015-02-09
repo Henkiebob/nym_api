@@ -1,7 +1,7 @@
   class API::UsersController  < ApplicationController
     require 'digest/md5'
     before_filter :restrict_access, only: [:show, :update]
-    respond_to :png
+    respond_to :png, only: [:avatar]
 
     def update
         @user = User.find_by_id(params[:id])
