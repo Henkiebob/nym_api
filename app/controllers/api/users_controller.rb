@@ -1,18 +1,7 @@
   class API::UsersController  < ApplicationController
+    require 'digest/md5'
 
     before_filter :restrict_access, only: [:show, :update]
-
-    def create
-        # params["users"].each do |user|
-        #     @user = User.new(user_params)
-        #     @house = House.find_by_id(user.house_id)
-
-        #     UserMailer.welcome_email(@user, @house)
-        # end
-        # @house = House.last
-
-        # UserMailer.welcome_email(@user, @house)
-    end
 
     def update
         @user = User.find_by_id(params[:id])
@@ -46,11 +35,23 @@
 
     def avatar
         @user = User.find_by_id(params[:id])
-        render :json => @user.avatar.url(:medium)
+
+        if !@user.avatar_file_size.nil?
+            @avatar = @user.avatar.url(:thumb)
+        else
+            filename = Digest::MD5.hexdigest(@user.email)
+            img = Avatarly.generate_avatar(@user.name, opts={})
+              File.open('public/images/'+filename+'.png', 'wb') do |f|
+                f.write img
+            end
+
+            @avatar = filename+'.png';
+        end
     end
 
   private
     def user_params
      params.require(:user).permit(:name, :email, :house_id)
     end
+
   end
