@@ -37,7 +37,7 @@
         @user = User.find_by_id(params[:id])
 
         if !@user.avatar_file_size.nil?
-            @avatar = @user.avatar.url(:thumb)
+            @avatar = File.open(@user.avatar(:thumb))
         else
             filename = Digest::MD5.hexdigest(@user.email)
             img = Avatarly.generate_avatar(@user.name, opts={:size => 150})
