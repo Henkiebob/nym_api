@@ -9,12 +9,12 @@ class API::TasksController < ApplicationController
     tasks.each do |task|
         if task.user
             user = User.find_by_id(task.user_id)
-            task.avatar = user.avatar.url(:thumb)
+            task.avatar = user.avatar.url(:small)
             task.save
         end
     end
 
-    respond_with :json => tasks
+    render :json => tasks
   end
 
   def update
