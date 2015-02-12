@@ -9,7 +9,7 @@ class API::TasksController < ApplicationController
     tasks.each do |task|
         if task.user && !task.avatar
             user        = User.find_by_id(task.user_id)
-            task.avatar = user.avatar.url(:small)
+            task.avatar = user.avatar.url(:medium)
             task.save
         end
     end
