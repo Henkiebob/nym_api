@@ -21,7 +21,7 @@ class API::TasksController < ApplicationController
         tasks << temp_tasks
     end
 
-    render :json => tasks
+    render :json => @tasks
   end
 
   def update
