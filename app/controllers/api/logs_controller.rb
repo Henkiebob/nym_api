@@ -4,8 +4,17 @@ class API::LogsController < ApplicationController
   respond_to :json
 
   def show
-    @log = Log.where(:house_id => params[:id])
-    render :json => @log
+    logs = Log.where(:house_id => params[:id])
+
+    logs.each do |log|
+        if log.user
+            user        = User.find_by_id(log.user_id)
+            log.avatar  = user.avatar.url(:medium)
+            log.save
+        end
+    end
+
+    render :json => logs
   end
 
   def create
