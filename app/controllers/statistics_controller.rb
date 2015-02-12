@@ -1,8 +1,8 @@
 class StatisticsController < ApplicationController
 
   def index
-      @users = User.all()
-      @tasks = Task.all()
+      @users  = User.all()
+      @tasks  = Task.all()
       @houses = House.all()
   end
 

@@ -6,7 +6,6 @@ class API::SessionsController < ApplicationController
     @house = House.find_by_name(login_params[:name])
 
     if @house && @house.authenticate(login_params[:password])
-
       inlog_information = []
 
       inlog_information << @house

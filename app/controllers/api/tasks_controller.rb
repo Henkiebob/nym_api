@@ -5,15 +5,31 @@ class API::TasksController < ApplicationController
 
   def index
     @tasks = Task.where(:house_id => params[:house_id]).order(:deadline)
-    render :json => @tasks
+
+    tasks = []
+
+    # voeg een avatar aan de taak toe als deze bestaat
+    @tasks.each do |task|
+        temp_tasks = {}
+        temp_tasks[:task] = task
+
+        if task.user_id
+          user = User.find_by_id(task.user_id)
+          temp_tasks[:avatar] = user.avatar
+        end
+
+        tasks << temp_tasks
+    end
+
+    render :json => tasks
   end
 
   def update
-       @task = Task.find(params[:id])
+    @task = Task.find(params[:id])
 
-        if @task.update_attributes(task_params)
-           render :json => @task
-        end
+    if @task.update_attributes(task_params)
+       render :json => @task
+    end
   end
 
   def create
@@ -28,14 +44,14 @@ class API::TasksController < ApplicationController
   end
 
   def destroy
-      @task = Task.find(params[:id])
+    @task = Task.find(params[:id])
 
-      if @task
-          @task.destroy
-          render :json => @task
-      else
-          render :json => "No task found"
-      end
+    if @task
+        @task.destroy
+        render :json => @task
+    else
+        render :json => "No task found"
+    end
   end
 
   private

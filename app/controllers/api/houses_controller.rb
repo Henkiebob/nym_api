@@ -21,35 +21,25 @@ class API::HousesController  < ApplicationController
   end
 
   def update
-       @house = House.find(params[:id])
+    @house = House.find(params[:id])
 
-        if @house.update_attributes(house_params)
-            creator = @house.users.first.name
+    if @house.update_attributes(house_params)
+        creator = @house.users.first.name
 
-            @house.users.each do |user|
-              #send email
-              UserMailer.welcome_email(user, @house, creator).deliver
-            end
-            render :json => @house.users
-        else
-            render :json => @house.errors.full_messages
+        @house.users.each do |user|
+          #send email
+          UserMailer.welcome_email(user, @house, creator).deliver
         end
+        render :json => @house.users
+    else
+        render :json => @house.errors.full_messages
+    end
   end
 
   def get_habitants
-      @users = User.where(:house_id => params[:id])
-      render :json => @users
+    @users = User.where(:house_id => params[:id])
+    render :json => @users
   end
-
-  # def send_invite_mail
-  #      @users   = User.where(:house_id => params[:id])
-  #      @house   = House.find(params[:id])
-  #      @creator = User.find(@house.created_by)
-
-  #      @users.each do |user|
-  #         UserMailer.welcome_email(user, @house, @creator).deliver
-  #      end
-  # end
 
   def upload
     @house = House.find_by_id(params[:id])
