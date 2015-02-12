@@ -7,7 +7,7 @@ class API::LogsController < ApplicationController
     logs = Log.where(:house_id => params[:id])
 
     logs.each do |log|
-        if log.user
+        if log.user_id
             user        = User.find_by_id(log.user_id)
             log.avatar  = user.avatar.url(:medium)
             log.save
