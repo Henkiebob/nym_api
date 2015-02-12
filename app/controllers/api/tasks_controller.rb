@@ -4,24 +4,17 @@ class API::TasksController < ApplicationController
   respond_to :json
 
   def index
-    @tasks = Task.where(:house_id => params[:house_id]).order(:deadline)
+    tasks = Task.where(:house_id => params[:house_id]).order(:deadline)
 
-    tasks = []
-
-    # voeg een avatar aan de taak toe als deze bestaat
-    @tasks.each do |task|
-        temp_tasks = {}
-        temp_tasks[:task] = task
-
-        if task.user_id
-          user = User.find_by_id(task.user_id)
-          temp_tasks[:avatar] = user.avatar
+    tasks.each do |task|
+        if task.user
+            user = User.find_by_id(task.user_id)
+            task.avatar = user.avatar.url(:thumb)
+            task.save
         end
-
-        tasks << temp_tasks
     end
 
-    render :json => @tasks
+    respond_with :json => tasks
   end
 
   def update
