@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Wc schoonmaken
+  deadline: 2014-14-05 23:48:23
+  duration: 1
+  points: 10
+  user_id: 2
+  status: 1
+  house_id: 1
+
+two:
+  name: Badkamer schoonmaken
+  deadline: 2014-12-05 23:48:23
+  duration: 7
+  points: 10
+  user_id: 2
+  status: 1
+  house_id: 1
