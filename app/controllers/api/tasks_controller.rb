@@ -7,8 +7,8 @@ class API::TasksController < ApplicationController
     tasks = Task.where(:house_id => params[:house_id]).order(:deadline)
 
     tasks.each do |task|
-        if task.user
-            user = User.find_by_id(task.user_id)
+        if task.user && !task.avatar
+            user        = User.find_by_id(task.user_id)
             task.avatar = user.avatar.url(:small)
             task.save
         end
