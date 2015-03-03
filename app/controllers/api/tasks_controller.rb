@@ -14,7 +14,11 @@ class API::TasksController < ApplicationController
         end
     end
 
-    render :json => tasks
+    #render :json => tasks
+    respond_to do |format|
+      format.json { render :json => tasks.to_json(:include => :user) }
+    end
+
   end
 
   def update
