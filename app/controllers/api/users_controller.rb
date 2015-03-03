@@ -1,4 +1,5 @@
 class API::UsersController  < ApplicationController
+
   require 'digest/md5'
   before_filter :restrict_access, only: [:show, :update]
 

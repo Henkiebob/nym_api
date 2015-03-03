@@ -8,7 +8,7 @@ class API::LogsController < ApplicationController
 
     logs.each do |log|
         if log.user_id
-            user        = User.find_by_id(log.user_id)
+            log.user    = User.find_by_id(log.user_id)
             log.avatar  = user.avatar.url(:medium)
             log.save
         end
