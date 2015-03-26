@@ -28,7 +28,7 @@ class API::HousesController  < ApplicationController
 
         @house.users.each do |user|
           #send email
-          #UserMailer.welcome_email(user, @house, creator).deliver
+          UserMailer.welcome_email(user, @house, creator).deliver
         end
         render :json => @house.users
     else
